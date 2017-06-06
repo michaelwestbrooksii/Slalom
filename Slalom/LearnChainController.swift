@@ -1,14 +1,14 @@
 //
-//  HomeController.swift
+//  TimelineController.swift
 //  Slalom
 //
-//  Created by Michael Westbrooks II on 5/26/17.
+//  Created by Michael Westbrooks II on 5/31/17.
 //  Copyright © 2017 RedRooster Technologies Inc. All rights reserved.
 //
 
 import UIKit
 
-class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class LearnChainController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cell_ID: String = "cell"    // <- Identify a cell ID similar to UITableView
     let header_ID: String = "header"
@@ -22,7 +22,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         //  MARK:- Make sure to register the cell class with the cell_ID for the collection view to begin displaying the cells.
         //  Use a custom cell or use UICollectionViewCell.self
-        collectionView?.register(MainCell.self, forCellWithReuseIdentifier: cell_ID)
+        collectionView?.register(LearnChainCell.self, forCellWithReuseIdentifier: cell_ID)
         
         //  MARK:- Add your headers and footers with the code below.
         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: header_ID)
@@ -30,20 +30,20 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_ID, for: indexPath) as! MainCell
-        let item = mainObj(name: "Hello Mike")
-        cell.mainLabel.text = "\(item.name) has \(item.length) letters in it."
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_ID, for: indexPath) as! LearnChainCell
+        
+        
         return cell
     }
     
     //  MARK:- UICollectionView defaults the size of each cell to 50px by 50px. Use the function below to adjust the size.
     //  This function conforms to the UICollectionViewDelegateFlowLayout delegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 60)
+        return CGSize(width: view.frame.width, height: 170)
     }
     
     //  MARK:- Implement the header and footer sections by using the below code and initializing the viewForSupplementaryOfKind that was created in the viewDidLoad()
@@ -71,3 +71,4 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
 }
+
